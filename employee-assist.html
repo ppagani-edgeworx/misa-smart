@@ -1,0 +1,1332 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Employee Assist | Edgeworx SmartAnswer</title>
+<meta name="description" content="Employee Assist page for Edgeworx SmartAnswer at MISA Ontario 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+
+  
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  :root {
+    --navy:    #071a33;
+    --navy2:   #0a2648;
+    --blue:    #2f75bb;
+    --accent:  #10c4d3;
+    --coral:   #f58220;
+    --white:   #FFFFFF;
+    --offwhite:#F6F9FD;
+    --text:    #172033;
+    --muted:   #5c6b82;
+    --lightblue: #d9e4f2;
+  }
+
+  body {
+    font-family: "Inter", Arial, sans-serif;
+    background: var(--offwhite);
+    color: var(--text);
+    margin: 0;
+  }
+
+  .page-label {
+    font-family: "Inter", Arial, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: -30px;
+  }
+
+  /* ── SHEET ── */
+  .sheet {
+    width: min(1120px, calc(100% - 32px));
+    min-height: auto;
+    background: var(--white);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(7,26,51,0.12);
+    display: flex;
+    flex-direction: column;
+    margin: 32px auto;
+    border-radius: 24px;
+  }
+
+  /* ── HEADER BAND ── */
+  .header {
+    background: var(--navy);
+    padding: 28px 36px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent) 0%, var(--coral) 100%);
+  }
+  .header-logo {
+    width:118px;
+    height:auto;
+    display:block;
+    background:#fff;
+    border-radius:10px;
+    padding:6px 8px;
+  }
+  .header-right {
+    text-align: right;
+  }
+  .header-product {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: -0.3px;
+    line-height: 1.1;
+  }
+  .header-product span {
+    color: var(--accent);
+  }
+  .header-powered {
+    font-size: 10px;
+    font-weight: 400;
+    color: #7ABCDA;
+    letter-spacing: 0.5px;
+    margin-top: 4px;
+  }
+
+  /* ── HERO STRIP ── */
+  .hero {
+    background: linear-gradient(135deg, var(--blue) 0%, var(--navy) 100%);
+    padding: 20px 36px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .hero-headline {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.35;
+    flex: 1;
+  }
+  .hero-headline span {
+    color: var(--accent);
+  }
+  .hero-tag {
+    background: var(--coral);
+    color: var(--white);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 3px;
+    white-space: nowrap;
+  }
+
+  /* ── BODY ── */
+  .body {
+    flex: 1;
+    padding: 24px 36px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  /* ── INTRO PARA ── */
+  .intro {
+    font-size: 12.5px;
+    font-weight: 400;
+    color: var(--text);
+    line-height: 1.65;
+    border-left: 3px solid var(--accent);
+    padding-left: 14px;
+    background: var(--offwhite);
+    padding: 12px 14px;
+    border-radius: 0 4px 4px 0;
+  }
+
+  /* ── TWO COLUMN SECTION ── */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  /* ── SECTION TITLE ── */
+  .section-title {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1.5px solid var(--lightblue);
+  }
+
+  /* ── USE CASE LIST ── */
+  .use-cases {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+  .use-case {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    font-size: 12px;
+    color: var(--text);
+    line-height: 1.45;
+  }
+  .use-case-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    margin-top: 4px;
+    flex-shrink: 0;
+  }
+  .use-case strong {
+    font-weight: 600;
+    color: var(--navy);
+  }
+
+  /* ── STAT CARDS ── */
+  .stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .stat-card {
+    background: var(--navy);
+    border-radius: 6px;
+    padding: 12px 14px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--accent);
+  }
+  .stat-num {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-label {
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.3;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .stat-sub {
+    font-size: 9px;
+    color: #7ABCDA;
+    margin-top: 3px;
+    font-style: italic;
+  }
+
+  /* ── HOW IT WORKS ── */
+  .steps {
+    display: flex;
+    gap: 0;
+    position: relative;
+  }
+  .steps::before {
+    content: '';
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    right: 16px;
+    height: 2px;
+    background: var(--lightblue);
+    z-index: 0;
+  }
+  .step {
+    flex: 1;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    padding: 0 6px;
+  }
+  .step-num {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--blue);
+    color: var(--white);
+    font-size: 13px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 7px;
+    border: 2px solid var(--white);
+  }
+  .step-title {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--navy);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+  .step-body {
+    font-size: 10.5px;
+    color: var(--muted);
+    line-height: 1.45;
+  }
+
+  /* ── COMPLIANCE BADGES ── */
+  .badges {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .badge {
+    background: var(--offwhite);
+    border: 1px solid var(--lightblue);
+    border-radius: 20px;
+    padding: 5px 13px;
+    font-size: 10.5px;
+    font-weight: 600;
+    color: var(--blue);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .badge-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  /* ── DIFFERENTIATOR BOX ── */
+  .diff-box {
+    background: var(--offwhite);
+    border: 1px solid var(--lightblue);
+    border-radius: 6px;
+    padding: 14px 16px;
+  }
+  .diff-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 11.5px;
+    color: var(--text);
+    line-height: 1.5;
+    margin-bottom: 9px;
+  }
+  .diff-item:last-child { margin-bottom: 0; }
+  .diff-icon {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .diff-icon svg {
+    width: 12px;
+    height: 12px;
+    fill: white;
+  }
+  .diff-item strong { color: var(--navy); font-weight: 700; }
+
+  /* ── CTA FOOTER ── */
+  .cta-footer {
+    background: var(--navy);
+    padding: 18px 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+    position: relative;
+  }
+  .cta-footer::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--coral) 0%, var(--accent) 100%);
+  }
+  .cta-left {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .cta-headline {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--white);
+  }
+  .cta-sub {
+    font-size: 10.5px;
+    color: #7ABCDA;
+  }
+  .cta-contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    text-align: right;
+  }
+  .cta-email {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--accent);
+  }
+  .cta-demo-btn {
+    background: var(--coral);
+    color: var(--white);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 8px 18px;
+    border-radius: 4px;
+    text-decoration: none;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+    align-self: center;
+    margin-left: 24px;
+  }
+
+  /* ── SIDE 2 SPECIFIC ── */
+  .ea-hero {
+    background: linear-gradient(135deg, #0A1E38 0%, var(--navy) 100%);
+    padding: 20px 36px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .persona-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+  }
+  .persona-card {
+    background: var(--offwhite);
+    border: 1px solid var(--lightblue);
+    border-radius: 6px;
+    padding: 12px 13px;
+    position: relative;
+    overflow: hidden;
+  }
+  .persona-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+  .persona-card.blue::before  { background: var(--blue); }
+  .persona-card.teal::before  { background: var(--accent); }
+  .persona-card.coral::before { background: var(--coral); }
+  .persona-name {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+  .persona-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .persona-list li {
+    font-size: 10.5px;
+    color: var(--text);
+    line-height: 1.4;
+    display: flex;
+    gap: 6px;
+    align-items: flex-start;
+  }
+  .persona-list li::before {
+    content: '›';
+    color: var(--accent);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .comparison {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 11px;
+  }
+  .comparison th {
+    background: var(--blue);
+    color: var(--white);
+    padding: 8px 12px;
+    font-weight: 700;
+    text-align: left;
+    font-size: 10.5px;
+    letter-spacing: 0.3px;
+  }
+  .comparison th:first-child { width: 35%; }
+  .comparison td {
+    padding: 7px 12px;
+    color: var(--text);
+    border-bottom: 1px solid #E8F0F8;
+    vertical-align: top;
+    line-height: 1.4;
+  }
+  .comparison tr:nth-child(even) td { background: var(--offwhite); }
+  .comparison .check { color: var(--accent); font-weight: 700; font-size: 13px; }
+  .comparison .cross  { color: #CCC; font-size: 13px; }
+
+  .quote-box {
+    background: var(--navy);
+    border-radius: 6px;
+    padding: 16px 18px;
+    position: relative;
+  }
+  .quote-box::before {
+    content: '"';
+    position: absolute;
+    top: 6px; left: 14px;
+    font-size: 52px;
+    color: var(--accent);
+    opacity: 0.25;
+    font-family: Georgia, serif;
+    line-height: 1;
+  }
+  .quote-text {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--white);
+    line-height: 1.6;
+    padding-left: 8px;
+    font-style: italic;
+  }
+  .quote-attr {
+    font-size: 10px;
+    color: #7ABCDA;
+    margin-top: 8px;
+    padding-left: 8px;
+  }
+
+  .misa-banner {
+    background: linear-gradient(90deg, var(--coral) 0%, #C0392B 100%);
+    padding: 9px 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .misa-text {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 0.5px;
+  }
+  .misa-sub {
+    font-size: 10px;
+    color: rgba(255,255,255,0.8);
+    margin-top: 1px;
+  }
+  .misa-live {
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 3px;
+    padding: 4px 12px;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  @media print {
+    body { background: white; padding: 0; }
+    .sheet { box-shadow: none; page-break-after: always; }
+    .page-label { display: none; }
+  }
+
+  .site-nav {
+    background: rgba(7,26,51,0.96);
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+  .site-nav-inner {
+    width: min(1120px, calc(100% - 32px));
+    margin: 0 auto;
+    height: 74px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:24px;
+  }
+  .site-logo {
+    width:118px;
+    height:auto;
+    display:block;
+    background:#fff;
+    border-radius:10px;
+    padding:6px 8px;
+  }
+  .site-nav a {
+    color: rgba(255,255,255,.82);
+    text-decoration:none;
+    font-weight:700;
+    font-size:.94rem;
+  }
+  .site-links {
+    display:flex;
+    gap:18px;
+    align-items:center;
+  }
+  .header-logo {
+    background:#fff;
+    border-radius:10px;
+    padding:6px 8px;
+  }
+  .landing-hero {
+    background:
+      radial-gradient(circle at 15% 20%, rgba(47,117,187,0.28), transparent 32%),
+      radial-gradient(circle at 78% 16%, rgba(245,130,32,0.18), transparent 24%),
+      linear-gradient(160deg, #071a33 0%, #0a2648 52%, #0f3e78 100%);
+    color:#fff;
+    padding:76px 0 64px;
+  }
+  .landing-wrap {
+    width:min(1120px, calc(100% - 32px));
+    margin:0 auto;
+  }
+  .landing-hero h1 {
+    font-size:clamp(2.8rem, 7vw, 5.2rem);
+    line-height:.95;
+    letter-spacing:-.07em;
+    margin:18px 0;
+    max-width:880px;
+  }
+  .landing-hero p {
+    color:rgba(255,255,255,.78);
+    font-size:1.15rem;
+    max-width:760px;
+  }
+  .landing-grid {
+    width:min(1120px, calc(100% - 32px));
+    margin:44px auto 80px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:24px;
+  }
+  .landing-card {
+    background:#fff;
+    border:1px solid var(--lightblue);
+    border-radius:24px;
+    box-shadow:0 20px 50px rgba(7,26,51,.10);
+    overflow:hidden;
+    text-decoration:none;
+    color:var(--text);
+    display:flex;
+    flex-direction:column;
+    min-height:420px;
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .landing-card:hover {
+    transform:translateY(-4px);
+    box-shadow:0 28px 70px rgba(7,26,51,.16);
+  }
+  .landing-thumb {
+    background:linear-gradient(145deg, var(--navy), var(--blue));
+    color:#fff;
+    padding:28px;
+    min-height:210px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+  }
+  .landing-thumb .tag {
+    color:#8eeaff;
+    font-size:.8rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    font-weight:900;
+  }
+  .landing-thumb h2 {
+    color:#fff;
+    font-size:2.2rem;
+    line-height:1;
+    letter-spacing:-.05em;
+    margin:20px 0 0;
+  }
+  .landing-card-body {
+    padding:26px;
+  }
+  .landing-card-body p {
+    color:var(--muted);
+    margin:0 0 20px;
+  }
+  .landing-cta {
+    color:var(--coral);
+    font-weight:900;
+  }
+  .demo-panel {
+    width:min(1120px, calc(100% - 32px));
+    margin:0 auto 70px;
+    background:linear-gradient(135deg, var(--navy), #123f78);
+    color:#fff;
+    border-radius:28px;
+    padding:36px;
+    display:grid;
+    grid-template-columns:1fr 420px;
+    gap:30px;
+    align-items:center;
+    border-top:6px solid var(--coral);
+  }
+  .demo-panel h2 {
+    color:#fff;
+    font-size:2.8rem;
+    line-height:1;
+    letter-spacing:-.06em;
+    margin:0 0 14px;
+  }
+  .demo-panel p {
+    color:rgba(255,255,255,.76);
+  }
+  .demo-form {
+    display:grid;
+    gap:12px;
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.14);
+    border-radius:22px;
+    padding:18px;
+  }
+  .demo-form input, .demo-form textarea, .demo-form select {
+    width:100%;
+    border:1px solid rgba(255,255,255,.18);
+    border-radius:14px;
+    padding:13px 14px;
+    font:inherit;
+    background:rgba(255,255,255,.96);
+    color:var(--text);
+  }
+  .demo-form textarea {
+    min-height:96px;
+    resize:vertical;
+  }
+  .demo-form button, .button-link {
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-height:48px;
+    padding:0 20px;
+    border-radius:999px;
+    background:linear-gradient(135deg, var(--coral), #ff9f3d);
+    color:#fff;
+    border:0;
+    font-weight:900;
+    text-decoration:none;
+    cursor:pointer;
+  }
+  .qr-card {
+    display:flex;
+    align-items:center;
+    gap:16px;
+    margin-top:20px;
+  }
+  .qr-card img {
+    width:112px;
+    height:112px;
+    background:#fff;
+    border-radius:12px;
+    padding:8px;
+  }
+  .page-intro {
+    width:min(1120px, calc(100% - 32px));
+    margin:22px auto -12px;
+    color:var(--muted);
+  }
+  .page-intro a {
+    color:var(--blue);
+    font-weight:800;
+    text-decoration:none;
+  }
+  @media(max-width:900px) {
+    .landing-grid, .demo-panel { grid-template-columns:1fr; }
+    .site-links { display:none; }
+    .sheet { width:calc(100% - 24px); margin:20px auto; border-radius:18px; }
+  }
+
+
+  .sheet {
+    margin-top: 0 !important;
+  }
+  .header.header-merged {
+    min-height: 150px;
+    padding: 34px 42px;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 32px;
+    align-items: center;
+  }
+  .header-copy {
+    color: #fff;
+  }
+  .header-eyebrow {
+    color: #8eeaff;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .header-main {
+    font-size: 26px;
+    line-height: 1.08;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    max-width: 520px;
+  }
+  .header-right {
+    text-align: right;
+  }
+  .page-intro {
+    display: none !important;
+  }
+  .site-nav-inner {
+    height: 64px;
+  }
+  .site-logo {
+    width: 112px;
+  }
+  @media(max-width:900px) {
+    .header.header-merged {
+      grid-template-columns: 1fr;
+      text-align: left;
+    }
+    .header-right {
+      text-align: left;
+    }
+  }
+
+
+  .header.header-merged {
+    min-height: 174px !important;
+    padding: 34px 42px !important;
+    display: grid !important;
+    grid-template-columns: 1.15fr 0.85fr !important;
+    gap: 32px !important;
+    align-items: center !important;
+    background: var(--navy) !important;
+  }
+  .header::after,
+  .header.header-merged::after {
+    display: none !important;
+  }
+  .header-main {
+    font-size: 23px !important;
+    line-height: 1.22 !important;
+    font-weight: 900 !important;
+    letter-spacing: -0.035em !important;
+    max-width: 720px !important;
+    color: #fff !important;
+  }
+  .header-main span {
+    color: var(--accent) !important;
+  }
+  .header-product {
+    font-size: 24px !important;
+  }
+  .sheet {
+    margin-top: 0 !important;
+  }
+  @media(max-width:900px) {
+    .header.header-merged {
+      grid-template-columns: 1fr !important;
+    }
+    .header-right {
+      text-align: left !important;
+    }
+  }
+
+
+  .site-logo {
+    max-height: 52px !important;
+    width: auto !important;
+    object-fit: contain !important;
+  }
+  .site-nav-inner {
+    height: 74px !important;
+    overflow: hidden !important;
+  }
+  .sheet {
+    width: min(1160px, calc(100% - 32px)) !important;
+    margin: 28px auto !important;
+  }
+  .header.header-merged {
+    min-height: 230px !important;
+    padding: 48px 54px !important;
+    grid-template-columns: 1fr 0.82fr !important;
+    gap: 54px !important;
+    overflow: hidden !important;
+  }
+  .header-main {
+    font-size: clamp(1.45rem, 3.1vw, 2.55rem) !important;
+    line-height: 1.12 !important;
+    max-width: 680px !important;
+  }
+  .header-product {
+    font-size: clamp(1.6rem, 2.6vw, 2.3rem) !important;
+    line-height: 1.05 !important;
+  }
+  .header-powered {
+    font-size: 0.86rem !important;
+    line-height: 1.35 !important;
+  }
+  .hero,
+  .ea-hero {
+    display: none !important;
+  }
+  @media(max-width:900px) {
+    .header.header-merged {
+      grid-template-columns: 1fr !important;
+      min-height: auto !important;
+      padding: 38px 30px !important;
+      gap: 24px !important;
+    }
+    .header-right {
+      text-align: left !important;
+    }
+  }
+
+
+  .cta-footer > div:first-child:empty,
+  .cta-footer::marker {
+    display:none !important;
+  }
+  .cta-footer {
+    border-left: 0 !important;
+    outline: none !important;
+  }
+  .cta-footer::after {
+    display:none !important;
+  }
+
+
+  .clean-cta-footer {
+    border: 0 !important;
+    outline: 0 !important;
+    box-shadow: none !important;
+    margin: 20px 36px 28px !important;
+    border-radius: 0 !important;
+  }
+  .clean-cta-footer::before,
+  .clean-cta-footer::after {
+    display: none !important;
+    content: none !important;
+  }
+
+
+  .cta-footer {
+    margin: 24px 36px 34px !important;
+    border: 0 !important;
+    outline: 0 !important;
+  }
+  .cta-footer,
+  .cta-footer * {
+    box-shadow: none;
+  }
+.clean-cta-footer {
+    background: var(--navy) !important;
+    margin: 28px 36px 34px !important;
+    padding: 30px 34px !important;
+    display: grid !important;
+    grid-template-columns: minmax(360px, 1.25fr) 120px minmax(260px, .8fr) 150px !important;
+    gap: 34px !important;
+    align-items: center !important;
+    border: 0 !important;
+    outline: 0 !important;
+    box-shadow: none !important;
+    position: relative !important;
+  }
+  .clean-cta-footer::before,
+  .clean-cta-footer::after {
+    display: none !important;
+    content: none !important;
+  }
+  .cta-left {
+    min-width: 0 !important;
+  }
+  .cta-headline {
+    white-space: normal !important;
+  }
+  .cta-sub {
+    white-space: normal !important;
+    max-width: 620px !important;
+  }
+  .cta-qr {
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    gap:6px !important;
+    color:#8eeaff !important;
+    font-size:8px !important;
+    line-height:1.25 !important;
+    text-align:center !important;
+    font-weight:700 !important;
+  }
+  .cta-qr img {
+    width:82px !important;
+    height:82px !important;
+    background:#fff !important;
+    padding:5px !important;
+    border-radius:8px !important;
+    display:block !important;
+  }
+  .cta-contact-group {
+    text-align:center !important;
+    min-width:260px !important;
+  }
+  .cta-contact-label {
+    font-size:9.5px !important;
+    color:#7ABCDA !important;
+    margin-bottom:8px !important;
+    text-transform:uppercase !important;
+    letter-spacing:1.6px !important;
+    font-weight:800 !important;
+  }
+  .cta-demo-btn {
+    margin-left:0 !important;
+    text-align:center !important;
+  }
+  .cta-warning,
+  .warning-icon,
+  .template-warning,
+  .validation-warning {
+    display:none !important;
+  }
+  @media(max-width:900px) {
+    .clean-cta-footer {
+      grid-template-columns: 1fr !important;
+      text-align:left !important;
+      margin:24px !important;
+    }
+    .cta-contact-group,
+    .cta-qr {
+      text-align:left !important;
+      align-items:flex-start !important;
+    }
+  }
+
+
+  .cta-footer,
+  .clean-cta-footer,
+  .cta-footer *,
+  .clean-cta-footer * {
+    display: none !important;
+  }
+  .external-demo-cta {
+    width: min(1160px, calc(100% - 32px));
+    margin: 34px auto 70px;
+  }
+  .external-demo-card {
+    background: var(--navy);
+    color: #fff;
+    border-radius: 28px;
+    padding: 34px 38px;
+    display: grid;
+    grid-template-columns: minmax(360px, 1.2fr) 150px minmax(260px, .8fr) 150px;
+    gap: 34px;
+    align-items: center;
+    box-shadow: 0 20px 60px rgba(7,26,51,.12);
+    border-top: 6px solid var(--coral);
+  }
+  .external-demo-card h2 {
+    color: #fff;
+    margin: 0 0 8px;
+    font-size: 1.45rem;
+    letter-spacing: -.03em;
+  }
+  .external-demo-card p {
+    margin: 0;
+    color: #8ecae6;
+    line-height: 1.35;
+  }
+  .external-qr {
+    text-align: center;
+    color: #8eeaff;
+    font-size: .78rem;
+    font-weight: 800;
+  }
+  .external-qr img {
+    width: 112px;
+    height: 112px;
+    background: #fff;
+    border-radius: 12px;
+    padding: 8px;
+    display: block;
+    margin: 0 auto 8px;
+  }
+  .external-contact {
+    text-align: center;
+    display: grid;
+    gap: 5px;
+  }
+  .external-contact strong {
+    color: #8ecae6;
+    text-transform: uppercase;
+    letter-spacing: .16em;
+    font-size: .78rem;
+  }
+  .external-contact span {
+    color: var(--accent);
+    font-weight: 800;
+  }
+  .external-demo-button {
+    background: var(--coral);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 900;
+    border-radius: 10px;
+    padding: 16px 20px;
+    text-align: center;
+  }
+  @media(max-width:900px) {
+    .external-demo-card {
+      grid-template-columns: 1fr;
+      text-align: left;
+    }
+    .external-contact,
+    .external-qr {
+      text-align: left;
+    }
+    .external-qr img {
+      margin-left: 0;
+    }
+  }
+
+</style>
+</head>
+<body>
+<nav class="site-nav">
+  <div class="site-nav-inner">
+    <a href="/"><img class="site-logo" src="https://static.wixstatic.com/media/9bd14c_c0b8436f9f9a44cea9007c29aa2782e7~mv2.png/v1/crop/x_0%2Cy_4%2Cw_250%2Ch_163/fill/w_142%2Ch_94%2Cal_c%2Cq_85%2Cusm_0.66_1.00_0.01%2Cenc_avif%2Cquality_auto/EdgeWorx_Logo_250x250.png" alt="Edgeworx Solutions logo"></a>
+    <div class="site-links">
+      <a href="/smart-answering.html">Smart Answering</a>
+      <a href="/employee-assist.html">Employee Assist</a>
+      <a href="/#book-demo">Book Demo</a>
+    </div>
+  </div>
+</nav>
+<div class="sheet">
+<!-- HEADER -->
+  <div class="header header-merged">
+    <div class="header-copy">
+      <div class="header-main">Give every municipal employee an AI knowledge assistant —<br>
+      <span style="color:var(--accent);">instant answers, consistent service, less time searching.</span></div>
+    </div>
+    <div class="header-right">
+      <div class="header-product">Employee <span>Assist</span> &amp; Web <span>Chat</span></div>
+      <div class="header-powered">Powered by SoundHound AI &nbsp;·&nbsp; AI Tools for Municipal Staff &amp; Residents Online
+    </div>
+  </div>
+</div>
+
+  <!-- BODY -->
+  <div class="body">
+
+    <!-- INTRO -->
+    <div class="intro">
+      Employee Assist, powered by SoundHound AI, is an internal AI voice and chat assistant built for municipal staff. It gives frontline employees, 311 agents, clerks, and department teams instant access to the knowledge they need to serve residents confidently — without searching through shared drives, waiting on a colleague, or escalating unnecessarily.
+    </div>
+
+    <!-- WHAT IT DOES -->
+    <div>
+      <div class="section-title">What Employee Assist Does for Municipal Teams</div>
+      <div class="persona-cards">
+
+        <div class="persona-card blue">
+          <div class="persona-name">📞 &nbsp;311 &amp; Front Counter Staff</div>
+          <ul class="persona-list">
+            <li>Instant policy and process lookups during live calls</li>
+            <li>Consistent answers across all agents, every shift</li>
+            <li>Reduces hold time while staff search for answers</li>
+            <li>New staff onboard faster with AI-guided support</li>
+          </ul>
+        </div>
+
+        <div class="persona-card teal">
+          <div class="persona-name">🏛️ &nbsp;Clerks &amp; Administrative Staff</div>
+          <ul class="persona-list">
+            <li>Quickly surface bylaws, procedures, and forms</li>
+            <li>Draft routine correspondence and communications</li>
+            <li>Navigate multi-department process questions</li>
+            <li>Reduce time spent on repetitive internal inquiries</li>
+          </ul>
+        </div>
+
+        <div class="persona-card coral">
+          <div class="persona-name">🔧 &nbsp;Operations &amp; Field Teams</div>
+          <ul class="persona-list">
+            <li>On-the-go access to work order and permit info</li>
+            <li>Safety procedures and compliance checklists</li>
+            <li>Asset and infrastructure knowledge base access</li>
+            <li>Voice-enabled — works hands-free in the field</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- COMPARISON TABLE -->
+    <div>
+      <div class="section-title">Web Chat — AI on Your Municipality's Website</div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:4px;">
+        <div style="background:var(--offwhite); border:1px solid var(--lightblue); border-radius:6px; padding:10px 12px;">
+          <div style="font-size:10.5px; font-weight:700; color:var(--navy); margin-bottom:4px;">What it does</div>
+          <div style="font-size:10px; color:var(--text); line-height:1.45;">An AI chat widget embedded on your municipality's public website. Residents ask questions in plain language and get instant, accurate answers — 24/7, without calling or waiting. Common queries handled: hours, services, permits, programs, payments, and more.</div>
+        </div>
+        <div style="background:var(--offwhite); border:1px solid var(--lightblue); border-radius:6px; padding:10px 12px;">
+          <div style="font-size:10.5px; font-weight:700; color:var(--navy); margin-bottom:4px;">Why Edgeworx manages it</div>
+          <div style="font-size:10px; color:var(--text); line-height:1.45;">Trained on your website content and municipal knowledge base. Edgeworx handles setup, content training, and ongoing updates — your team doesn't manage the AI. Live on your website within weeks. Fully aligned with resident information needs, not sales automation.</div>
+        </div>
+      </div>
+
+      <div class="section-title">Employee Assist vs. Status Quo</div>
+      <table class="comparison">
+        <thead>
+          <tr>
+            <th>Situation</th>
+            <th>Without Employee Assist</th>
+            <th>With Employee Assist</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Resident asks a complex bylaw question</strong></td>
+            <td>Staff searches shared drives or calls a colleague — resident waits</td>
+            <td>AI surfaces the answer in seconds — resident gets it on the call</td>
+          </tr>
+          <tr>
+            <td><strong>New employee handles a service call</strong></td>
+            <td>Escalates or guesses — inconsistent resident experience</td>
+            <td>AI guides them through the correct process in real time</td>
+          </tr>
+          <tr>
+            <td><strong>311 agent needs permit process steps</strong></td>
+            <td>Puts resident on hold, navigates intranet, emails department</td>
+            <td>Types or asks the AI — correct answer in under 10 seconds</td>
+          </tr>
+          <tr>
+            <td><strong>Field crew needs a safety procedure</strong></td>
+            <td>Calls supervisor or drives back to office to check manual</td>
+            <td>Voice query on mobile device — AI reads out the procedure</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- HOW IT WORKS + KEY FEATURES -->
+    <div class="two-col">
+
+      <div>
+        <div class="section-title">How It Works</div>
+        <div class="steps" style="position:relative;">
+          <div class="step">
+            <div class="step-num" style="background:var(--accent);">1</div>
+            <div class="step-title">Connect</div>
+            <div class="step-body">Linked to your knowledge base, bylaws, policies, and procedures</div>
+          </div>
+          <div class="step">
+            <div class="step-num" style="background:var(--accent);">2</div>
+            <div class="step-title">Ask</div>
+            <div class="step-body">Staff ask in natural language — voice or text, any device</div>
+          </div>
+          <div class="step">
+            <div class="step-num" style="background:var(--accent);">3</div>
+            <div class="step-title">Answer</div>
+            <div class="step-body">Accurate, sourced responses from your own content instantly</div>
+          </div>
+          <div class="step">
+            <div class="step-num" style="background:var(--accent);">4</div>
+            <div class="step-title">Improve</div>
+            <div class="step-body">Knowledge gaps identified and filled — managed by Edgeworx</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="section-title">Key Capabilities</div>
+        <div class="diff-box">
+          <div class="diff-item">
+            <div class="diff-icon" style="background:var(--accent)">
+              <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2zm-1 14l-4-4 1.4-1.4L11 13.2l6.6-6.6L19 8l-8 8z"/></svg>
+            </div>
+            <div><strong>Voice &amp; text input</strong> — Works however staff prefer to interact</div>
+          </div>
+          <div class="diff-item">
+            <div class="diff-icon" style="background:var(--accent)">
+              <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2zm-1 14l-4-4 1.4-1.4L11 13.2l6.6-6.6L19 8l-8 8z"/></svg>
+            </div>
+            <div><strong>Your content, your answers</strong> — Trained on your policies, not generic internet data</div>
+          </div>
+          <div class="diff-item">
+            <div class="diff-icon" style="background:var(--accent)">
+              <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2zm-1 14l-4-4 1.4-1.4L11 13.2l6.6-6.6L19 8l-8 8z"/></svg>
+            </div>
+            <div><strong>Fully managed</strong> — Edgeworx maintains, updates, and optimizes the knowledge base</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- QUOTE/INSIGHT BOX -->
+    <div class="quote-box">
+      <div class="quote-text">
+        Smart Answering handles the phone. Web Chat handles the website. Employee Assist handles the team behind both. Together, the Edgeworx AI suite closes the resident service gap from every direction — fully managed, so your team focuses on what matters.
+      </div>
+      <div class="quote-attr">— Edgeworx &nbsp;·&nbsp; Powered by SoundHound AI</div>
+    </div>
+
+  </div><!-- /body -->
+
+  <!-- CTA FOOTER -->
+  <div style="height:16px;"></div>
+</div>
+
+<section class="external-demo-cta">
+  <div class="external-demo-card">
+    <div>
+      <h2>Ready to see SmartAnswer in action?</h2>
+      <p>Book a personalized demo using your municipality’s website, services, and common resident questions.</p>
+    </div>
+    <div class="external-qr">
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https%3A%2F%2Fsmartanswer.edge-worx.com" alt="QR code for smartanswer.edge-worx.com">
+      <span>smartanswer.edge-worx.com</span>
+    </div>
+    <div class="external-contact">
+      <strong>Contact Us</strong>
+      <span>barry.hohol@edgeworx.com</span>
+      <span>alan.mcfarland@edgeworx.com</span>
+    </div>
+    <a href="/#book-demo" class="external-demo-button">Book Demo</a>
+  </div>
+</section>
+
+</body>
+</html>
